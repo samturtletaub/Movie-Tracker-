@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-sans: "Geist", system-ui, -apple-system, sans-serif;
+}
+
+html,
+body {
+  background: #07070a;
+  color: #ececef;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(212, 165, 116, 0.35);
+  color: #fff;
+}
+
+/* Film-grain overlay for body (subtle) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+  background-image: theme("backgroundImage.grain");
+  background-size: 220px 220px;
+}
+
+/* Hide scrollbars on horizontal carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Focus rings */
+:focus-visible {
+  outline: 2px solid #d4a574;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
